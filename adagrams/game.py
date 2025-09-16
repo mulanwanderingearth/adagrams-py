@@ -58,13 +58,17 @@ def draw_letters():
     
     return drawn_list    
 
-    
-    
-
-
-
 def uses_available_letters(word, letter_bank):
-    pass
+    is_valid = False
+    letters_copy = letter_bank[:]
+    
+    for letter in word.upper():
+        if letter in letters_copy :
+            is_valid  = True
+            letters_copy.remove(letter)
+        else:
+            is_valid = False
+    return is_valid 
 
 def score_word(word):
     pass
