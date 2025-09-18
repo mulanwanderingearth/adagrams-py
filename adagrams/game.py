@@ -30,7 +30,7 @@ def draw_letters():
     'Z': 1
 }
     #make a new list named pool_list
-    pool_list=[]
+    pool_list = []
     for key, value in LETTER_POOL.items():
         for i in range(0,value):
             pool_list.append(key)
@@ -38,9 +38,9 @@ def draw_letters():
 
     #draw ten times from pool_list randomly and remove the tile from
     #the pool_list
-    drawn_list=[]
-    total_index=len(pool_list)
-    draw_time=10
+    drawn_list = []
+    total_index = len(pool_list)
+    draw_time = 10
     for i in range(0,draw_time):
         index=randint(0,total_index-1)
         element=pool_list.pop(index)
@@ -73,6 +73,7 @@ def uses_available_letters(word, letter_bank):
 def score_word(word):
     if word=="":
         return 0
+    
     score=0
     for letter in word.upper():
         if letter in ["A","E", "I", "O", "U", "L", "N", "R", "S", "T"]:
@@ -89,12 +90,36 @@ def score_word(word):
             score += 8
         elif letter in ["Q", "Z"]:
             score += 10
-    if len(word)>=7:
-            score +=8
+    if len(word) >= 7:
+            score += 8
        
 
     return score
 
 
 def get_highest_word_score(word_list):
-    pass
+    
+    highest_score = 0
+    for word in word_list:
+        score = score_word(word)
+        if score > highest_score:
+            highest_score = score
+            best_word = word
+        elif score == highest_score and (len(best_word) == 10):
+            pass
+        elif score == highest_score and (len(word)==10 or len(word)<len(best_word)):
+            
+            best_word = word
+            
+
+        
+       
+
+
+
+    
+
+    final_word = (best_word, highest_score)
+
+
+    return final_word
