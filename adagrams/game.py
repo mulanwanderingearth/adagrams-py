@@ -42,10 +42,10 @@ def draw_letters():
     total_index = len(pool_list)
     draw_time = 10
     for i in range(0,draw_time):
-        index=randint(0,total_index-1)
-        element=pool_list.pop(index)
+        index = randint(0,total_index-1)
+        element = pool_list.pop(index)
         drawn_list.append(element)
-        total_index-=1
+        total_index -= 1
     
     #check the frequency of letter that is more than that in LETTER_POOL
     letter_freq = {}
